@@ -1,0 +1,13 @@
+<footer id="footer">
+<div class="copyright">
+<p>&copy;&nbsp;
+{{- $current := now.Format "2006" }}
+{{- if ne .Site.Params.since $current }}{{ .Site.Params.since }}–{{ end }}
+{{- $current }}&nbsp;
+{{- if .Site.Copyright }}
+  {{- .Site.Copyright | safeHTML }}
+{{- else }}
+  {{- .Site.Author.name | safeHTML }}
+{{- end }}
+</div>
+</footer>

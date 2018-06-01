@@ -1,0 +1,12 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+  {{- block "title" . }}
+    {{- if .IsPage }}
+      {{- .Title }} - {{ .Site.Title }}
+    {{- else }}
+      {{- default .Site.Title .Title }}
+    {{- end }}
+  {{- end -}}
+</title>
+<link href="{{ "css/site.css" | relURL }}" rel="stylesheet">

@@ -1,0 +1,9 @@
+{{- define "content" -}}
+<article>
+<h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+{{- if not .Date.IsZero }}
+{{ dateFormat (default "2006-01-02" .Site.Params.dateFormat) .Date }}
+{{- end }}
+{{ .Content -}}
+</article>
+{{- end }}
