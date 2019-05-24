@@ -1,4 +1,4 @@
----
-title: "{{ replace .Name "-" " " | title }}"
-draft: true
----
++++
+title = "{{ replace .Name "-" " " | title }}"
+draft = true
++++
