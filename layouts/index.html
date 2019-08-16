@@ -1,24 +1,9 @@
 {{- define "content" -}}
 <section id="posts">
-{{- $paginator := .Paginate (where .Data.Pages "Type" "post") 50 }}
 <ol class="post-list">
-{{- range $paginator.Pages }}
+{{- range .Site.Pages }}
 <li>{{ dateFormat "2006-01-02" .Date }}: <a href="{{ .Permalink }}">{{ .Title }}</a>
 {{- end }}
 </ol>
-
-<div class="pager">
-{{- if $paginator.HasPrev -}}
-<a href="{{ $paginator.Prev.URL }}">« Previous</a>
-{{- else }}
-« Previous
-{{- end }}
-&nbsp;|&nbsp;&nbsp;Page {{ $paginator.PageNumber }}&nbsp;&nbsp;|&nbsp;
-{{- if $paginator.HasNext }}
-<a href="{{ $paginator.Next.URL }}">Next »</a>
-{{- else }}
-Next »
-{{- end }}
-</div>
 </section>
 {{- end }}
