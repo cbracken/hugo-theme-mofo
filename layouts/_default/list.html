@@ -3,7 +3,9 @@
 <section id="posts">
 <ol class="post-list">
 {{- range .Pages }}
-<li><a href="{{ .Permalink }}">{{ .Title }}</a>
+<li>
+{{- if eq .Type "post" -}}{{ dateFormat "2006-01-02" .Date }}: {{ end -}}
+<a href="{{ .Permalink }}">{{ .Title }}</a>
 {{- end }}
 </ol>
 </section>
