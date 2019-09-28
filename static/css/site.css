@@ -1,6 +1,19 @@
-/* Basics. */
+/* Light/Dark mode support */
+:root {
+  color-scheme: light dark;
+  --text-color: #333;
+  --link-color: #0044dd;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #ccc;
+    --link-color: #3377dd;
+  }
+}
+
+/* Basics */
 body {
-  color: #333;
+  color: var(--text-color);
   font-size: 16px;
   line-height: 1.6;
   margin: 40px auto;
@@ -9,13 +22,13 @@ body {
 }
 pre,code { font-size: 14px; line-height: 1.0; }
 a {
-  color: #0044dd;
+  color: var(--link-color);
   text-decoration: none;
 }
 h1,h2,h3 { line-height: 1.2; }
-h1 > a { color: #333; }
-h2 > a { color: #333; }
-h3 > a { color: #333; }
+h1 > a { color: var(--text-color); }
+h2 > a { color: var(--text-color); }
+h3 > a { color: var(--text-color); }
 .center { text-align: center; }
 
 /* Header */
@@ -36,7 +49,7 @@ nav > ul > li.menu-item {
   display: inline;
   padding: 0 0.5em 0 0.5em;
 }
-nav > ul > li.menu-item > a { color: #333; }
+nav > ul > li.menu-item > a { color: var(--text-color); }
 
 /* Footer */
 footer > div.copyright { display: none; text-align: center; }
