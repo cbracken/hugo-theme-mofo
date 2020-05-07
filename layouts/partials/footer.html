@@ -1,13 +1,30 @@
 <footer id="footer">
 <div class="copyright">
-<p>&copy;&nbsp;
-{{- $current := now.Format "2006" }}
-{{- if ne .Site.Params.since $current }}{{ .Site.Params.since }}–{{ end }}
-{{- $current }}&nbsp;
 {{- if .Site.Copyright }}
   {{- .Site.Copyright | safeHTML }}
-{{- else }}
-  {{- .Site.Author.name | safeHTML }}
+{{- else if .Site.Params.ccLicenseName }}
+<span xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#">
+The content of this site
+{{- if .Site.Params.ccAttributionName }} by
+{{- if .Site.Params.ccAttributionUrl }}
+<a rel="cc:attributionURL" href="{{ .Site.Params.ccAttributionUrl }}">
+{{- end -}}
+<span rel="cc:attributionName">{{ .Site.Params.ccAttributionName }}</span>
+{{- if .Site.Params.ccAttributionUrl }}</a>{{ end }}
+{{- end }}
+is
+{{ if .Site.Params.ccLicenseUrl -}}
+<a href="{{ .Site.Params.ccLicenseUrl }}">
+{{- end -}}
+{{ .Site.Params.ccLicenseName }}
+{{- if .Site.Params.ccLicenseUrl }}</a>{{ end }}.
+</span>
+{{- else -}}
+<p>&copy;&nbsp;
+  {{- $current := now.Format "2006" }}
+  {{- if ne .Site.Params.since $current }}{{ .Site.Params.since }}–{{ end }}
+  {{- $current }}&nbsp;
+  {{- .Site.Author.name | safeHTML }}.
 {{- end }}
 </div>
 </footer>
