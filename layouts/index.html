@@ -2,7 +2,7 @@
 <section id="posts">
 <ol class="post-list">
 {{- range where .Site.RegularPages "Type" "post" }}
-<li>{{ dateFormat "2006-01-02" .Date }}: <a href="{{ .Permalink }}">{{ .Title }}</a>
+<li>{{ dateFormat "2006-01-02" .Date }}: <a href="{{ .RelPermalink }}">{{ .Title }}</a>
 {{- end }}
 </ol>
 </section>
